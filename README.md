@@ -231,15 +231,27 @@ multicam-reid/
 
 ---
 
-## References
+## ## Inspiration and References
+
+This project draws inspiration from existing research and open-source 
+implementations in the field of multi-camera person tracking and 
+re-identification.
+
+A notable reference implementation is:
+
+- https://github.com/samihormi/Multi-Camera-Person-Tracking-and-Re-Identification
+
+The repository illustrates a classical approach to multi-camera tracking 
+using object detection, tracking algorithms, and person re-identification 
+models.
+
+This project builds upon the general concept while exploring a different 
+technology stack and implementation approach.
 
 - **YOLOv8**: Jocher et al. (2023) — Ultralytics
 - **ByteTrack**: Zhang et al. (2022) — ECCV
 - **MobileNetV3**: Howard et al. (2019) — ICCV
 - **Market-1501 / DukeMTMC**: person ReID benchmark datasets
-
 ---
-
 ## License
-
-MIT — see LICENSE.
+MIT
