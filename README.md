@@ -231,7 +231,7 @@ multicam-reid/
 
 ---
 
-## ## Inspiration and References
+## Inspiration and References
 
 This project draws inspiration from existing research and open-source 
 implementations in the field of multi-camera person tracking and 
