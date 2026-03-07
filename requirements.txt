@@ -1,0 +1,32 @@
+# ═══════════════════════════════════════════════════════
+#  Multi-Camera ReID  —  requirements.txt
+#  Python 3.10  |  CPU-first  |  zero build steps
+# ═══════════════════════════════════════════════════════
+
+# ── PyTorch ────────────────────────────────────────────
+# CPU:   pip install torch torchvision
+# CUDA 11.8: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+# CUDA 12.1: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+torch>=2.0.0
+torchvision>=0.15.0          # MobileNetV3 is here — ships with PyTorch
+
+# ── Detection + Tracking ───────────────────────────────
+ultralytics>=8.0.200         # YOLOv8 + ByteTrack built in
+
+# ── Vision ─────────────────────────────────────────────
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# ── Data ───────────────────────────────────────────────
+numpy>=1.24.0
+pandas>=2.0.0
+
+# ── Dashboard ──────────────────────────────────────────
+streamlit>=1.32.0
+
+# ── Utils ──────────────────────────────────────────────
+tqdm>=4.65.0
+matplotlib>=3.7.0
+
+# ── Database ───────────────────────────────────────────
+# sqlite3 is in Python stdlib — no install needed
