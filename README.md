@@ -15,13 +15,13 @@
 ## What It Does
 
 ```
-Person walks into Cam0       → assigned GID-0001
-Person walks to Cam1         → recognised as GID-0001  ✅ (same ID)
-Person returns to Cam0       → recognised as GID-0001  ✅ (same ID)
+Person walks into Cam0         → assigned GID-0001
+Person walks to Cam1           → recognised as GID-0001  ✅ (same ID)
+Person returns to Cam0         → recognised as GID-0001  ✅ (same ID)
 Person doesn't appear for 2min → status = LOST  ⚠️
-Operator opens dashboard     → sees GID-0001 in Lost Registry
+Operator opens dashboard       → sees GID-0001 in Lost Registry
                                → can add notes, resolve, or reactivate
-GID-0001 is never deleted    → permanent record until operator resolves ✅
+GID-0001 is never deleted      → permanent record until operator resolves ✅
 ```
 
 ---
@@ -30,16 +30,16 @@ GID-0001 is never deleted    → permanent record until operator resolves ✅
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│                     pipeline.py                         │
-│  (video files OR live RTSP/webcam — handles both)       │
+│                     pipeline.py                        │
+│  (video files OR live RTSP/webcam — handles both)      │
 └──────────────────┬─────────────────────────────────────┘
                    │
           GlobalTracker  ─────────────────────┐
-          (orchestrates all cameras)           │
-                   │                           │
-    ┌──────────────┴──────────────┐            │
-    │                             │            │
-CameraWorker 0              CameraWorker 1    ...
+          (orchestrates all cameras)          │
+                   │                          │
+    ┌──────────────┴──────────────┐           │
+    │                             │           │
+CameraWorker 0              CameraWorker 1   ...
     │                             │
     ▼                             ▼
 YOLOv8 detect            YOLOv8 detect
@@ -50,7 +50,7 @@ MobileNetV3 embed        MobileNetV3 embed
                    │
                    ▼
          IdentityStore  (SQLite)
-         ┌─────────────────────────────────────────┐
+         ┌──────────────────────────────────────────┐
          │  match_or_create(embedding)              │
          │    1. compare against ALL known persons  │
          │    2. cosine similarity > threshold?     │
@@ -59,17 +59,17 @@ MobileNetV3 embed        MobileNetV3 embed
          │  promote_lost()                          │
          │    absent > threshold? → status=LOST     │
          │    NEVER deleted unless operator says so │
-         └─────────────────────────────────────────┘
+         └──────────────────────────────────────────┘
                    │
                    ▼
          Streamlit Dashboard  (dashboard/app.py)
-         ┌─────────────────────────────────────────┐
-         │  📊 Overview   — live stats + alerts     │
-         │  🟢 Active     — currently tracked       │
-         │  🔴 Lost       — never-delete registry   │
-         │  🔍 Search     — by ID / time / camera   │
-         │  👤 Detail     — full history + crops    │
-         └─────────────────────────────────────────┘
+         ┌────────────────────────────────────────┐
+         │  📊 Overview   — live stats + alerts   │
+         │  🟢 Active     — currently tracked     │
+         │  🔴 Lost       — never-delete registry │
+         │  🔍 Search     — by ID / time / camera │
+         │  👤 Detail     — full history + crops  │
+         └────────────────────────────────────────┘
 ```
 
 ---
@@ -158,11 +158,11 @@ streamlit run dashboard/app.py
 
 ## Identity Match Threshold Guide
 
-| `--sim-threshold` | Behaviour |
-|-------------------|-----------|
-| `0.50` | Permissive — more re-IDs, possible false matches |
-| `0.60` | Balanced ← **recommended** |
-| `0.70` | Strict — fewer re-IDs, very reliable |
+| `--sim-threshold` |               Behaviour                  |
+|-------------------|------------------------------------------|
+| `0.50` | Permissive — more re-IDs, possible false matches    |
+| `0.60` | Balanced ← **recommended**                          |
+| `0.70` | Strict — fewer re-IDs, very reliable                |
 | `0.75` | Very strict — only match highly similar appearances |
 
 ---
