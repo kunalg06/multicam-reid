@@ -387,7 +387,4 @@ If you use this work in academic research, please cite the relevant upstream pap
 ## License
 
 MIT License — see [LICENSE](LICENSE).  
-<<<<<<< HEAD
-Copyright © 2025 Kunal Gaikwad
-=======
 Copyright © 2025 Kunal Gaikwad
