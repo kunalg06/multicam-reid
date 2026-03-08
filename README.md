@@ -25,7 +25,6 @@ The academic foundation and problem framing of this project draws from:
 
 **What the original dissertation used:**
 
-<<<<<<< HEAD
 | Component | Original (Dissertation)   |
 |-----------|---------------------------|
 | Detection | YOLOv4 (Keras / Darknet)  |
@@ -33,15 +32,6 @@ The academic foundation and problem framing of this project draws from:
 | Re-ID     | torchreid (OSNet / ResNet)|
 | Dataset   | DukeMTMC-ReID, Market-1501|
 | Results   | IDF1 = 50.7%, MOTA = 99.8%|
-=======
-| Component | Original (Dissertation) |
-|-----------|------------------------|
-| Detection | YOLOv4 (Keras / Darknet) |
-| Tracking | DeepSORT |
-| Re-ID | torchreid (OSNet / ResNet) |
-| Dataset | DukeMTMC-ReID, Market-1501 |
-| Results | IDF1 = 50.7%, MOTA = 99.8% |
->>>>>>> d6a7379841190c3e00bf160bcb7fc53b37030c46
 
 **What this reimplementation uses — and why it differs:**
 
@@ -78,13 +68,8 @@ GID-0001 never deleted         →  permanent record until operator closes case
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-<<<<<<< HEAD
 │                      pipeline.py                        │
 │   Accepts: video files  OR  live RTSP  OR  webcam       │
-=======
-│                      pipeline.py                         │
-│   Accepts: video files  OR  live RTSP  OR  webcam        │
->>>>>>> d6a7379841190c3e00bf160bcb7fc53b37030c46
 └──────────────────────┬──────────────────────────────────┘
                        │
               GlobalTracker
@@ -120,11 +105,7 @@ GID-0001 never deleted         →  permanent record until operator closes case
                                             │
                                   Streamlit Dashboard
                                   ┌──────────────────────────────────┐
-<<<<<<< HEAD
                                   │  📊 Overview   live stats        │ 
-=======
-                                  │  📊 Overview   live stats        │
->>>>>>> d6a7379841190c3e00bf160bcb7fc53b37030c46
                                   │               + reappearance     │
                                   │                 alerts           │
                                   │  🟢 Active    currently tracked  │
